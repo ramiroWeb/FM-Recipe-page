@@ -1,12 +1,74 @@
-@use "core/reset";
+@import "core/reset", "abstracts/variables";
 
+.recipe {
+  font-family: $ff-outfit;
+  color: $clr-neutral-Wenge-Brown;
 
-img{
-    max-width: 100%;
-    height: auto;
-}
-.container{
-    max-width: 600px;
+  &__content {
     display: grid;
-    place-content: center;
+    gap: 1.4rem;
+    margin: 1.5rem;
+    background-color: $clr-neutral-White;
+  }
+  &__title {
+    font-family: $ff-young-serif;
+    font-weight: $fw-regular;
+    color: $clr-neutral-Dark-Charcoal;
+  }
+  &__section {
+    &-prep-time {
+      background-color: $clr-neutral-Rose-White;
+      padding: 1.2rem;
+
+      h3 {
+        color: $clr-primary-Dark-Raspberry;
+      }
+    }
+    &-nutrition {
+      display: grid;
+      gap: 1rem;
+      .nutrition-description {
+        margin-bottom: 0.6rem;
+      }
+      .row {
+        padding: 0 1.4rem 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        &:not(:last-child) {
+          border-bottom: 1px solid $clr-neutral-Eggshell;
+        }
+        span {
+          color: $clr-primary-Nutmeg;
+          font-weight: $fw-bold;
+        }
+      }
+    }
+  }
+  ol,
+  ul {
+    li {
+      span {
+        font-weight: $fw-bold;
+      }
+    }
+  }
+  ol,
+  ul {
+    margin-top: 0.6rem;
+    display: grid;
+    gap: 0.6rem;
+    padding-left: 1.3rem;
+    li {
+      padding-left: 0.6rem;
+      &::marker {
+        font-weight: $fw-bold;
+      }
+    }
+  }
+  h2 {
+    color: $clr-primary-Nutmeg;
+    font-family: $ff-young-serif;
+    font-weight: $fw-medium;
+    margin-block: 0.6rem;
+  }
 }
