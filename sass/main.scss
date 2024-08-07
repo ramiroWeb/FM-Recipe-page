@@ -1,13 +1,39 @@
-@import "core/reset", "abstracts/variables";
+@import "core/reset";
+@import "abstracts/variables";
+@import "abstracts/mixins/media-queries";
 
+body {
+  background-color: $clr-neutral-Eggshell;
+  display: grid;
+  place-content: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  @include mobile {
+    margin: 0;
+    background: $clr-neutral-White;
+  }
+}
 .recipe {
   font-family: $ff-outfit;
+  background: $clr-neutral-White;
   color: $clr-neutral-Wenge-Brown;
-
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 560px;
+  @include mobile {
+    padding: 0;
+  }
+  &__image {
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
   &__content {
+    @include mobile {
+      padding: 1.6rem;
+    }
+    margin-top: 1rem;
     display: grid;
     gap: 1.4rem;
-    margin: 1.5rem;
     background-color: $clr-neutral-White;
   }
   &__title {
@@ -19,12 +45,18 @@
     &-prep-time {
       background-color: $clr-neutral-Rose-White;
       padding: 1.2rem;
+      border-radius: 0.75rem;
 
       h3 {
         color: $clr-primary-Dark-Raspberry;
       }
     }
+    &-ingredients, &-instructions{
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid $clr-neutral-Eggshell;
+    }
     &-nutrition {
+      
       display: grid;
       gap: 1rem;
       .nutrition-description {
@@ -46,21 +78,19 @@
   }
   ol,
   ul {
-    li {
-      span {
-        font-weight: $fw-bold;
-      }
-    }
-  }
-  ol,
-  ul {
     margin-top: 0.6rem;
     display: grid;
     gap: 0.6rem;
     padding-left: 1.3rem;
+
     li {
       padding-left: 0.6rem;
+
       &::marker {
+        font-weight: $fw-bold;
+      }
+
+      span {
         font-weight: $fw-bold;
       }
     }
@@ -70,5 +100,17 @@
     font-family: $ff-young-serif;
     font-weight: $fw-medium;
     margin-block: 0.6rem;
+  }
+}
+.attribution {
+  margin-top: 1rem;
+  text-align: center;
+  a {
+    color: $clr-primary-Nutmeg;
+    font-weight: $fw-bold;
+    text-decoration: none;
+    &:is(:hover, :focus) {
+      text-decoration: underline;
+    }
   }
 }
